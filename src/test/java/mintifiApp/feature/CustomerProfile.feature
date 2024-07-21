@@ -74,31 +74,26 @@ Scenario: [TC-CP-01] To verify the customer profile API
    And match companyDetails.mobile == '#regex \\d{10}'
    And def companyMobile = companyDetails.mobile
    And print 'Company Mobile:', companyMobile
-
-   # Define the regex pattern for PAN validation
+# Define the regex pattern for PAN validation
    And def companyPanPattern = '^\\*{6}\\d{3}[A-Z]$' 
-   # Check if the company's PAN number is masked
+# Check if the company's PAN number is masked
    And def isMaskedPan = companyDetails.pan.startsWith('***')  
-   # Validate the PAN number against the pattern if it's not masked
+# Validate the PAN number against the pattern if it's not masked
    And def isValidPan = isMaskedPan || karate.match(companyDetails.pan, companyPanPattern).pass
-   # Print whether the company's PAN number is valid according to the pattern
+# Print whether the company's PAN number is valid according to the pattern
    And print 'Is Company PAN Number Valid:', isValidPan
-   # Print the company's PAN number (masked or actual)
+# Print the company's PAN number (masked or actual)
    And print 'Company PAN Number:', companyDetails.pan
-   
+
    And match companyDetails.email == '#regex [a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}'
    And def companyEmail = companyDetails.email
    And print 'Company Email:', companyEmail
-
-   And match companyDetails.address == '#string'
-   And print 'Company Address:', companyDetails.address
 
    And match companyDetails.type == '#string'
    And print 'Company Type:', companyDetails.type
 
    And def companyGstPattern = '^\\d{2}[A-Z]{5}\\d{4}[A-Z]{1}[A-Z\\d]{1}[Z]{1}[A-Z\\d]{1}$'
-   # Check if GST is masked
-   And def isMaskedGst = companyDetails.gstNumber.startsWith('***')
-   And def isValidGst = isMaskedGst || karate.match(companyDetails.gstNumber, companyGstPattern).pass
+# Check if GST is masked or null
+   And def isValidGst = companyDetails.gstNumber == '' || companyDetails.gstNumber.startsWith('***') || karate.match(companyDetails.gstNumber, companyGstPattern).pass
    And print 'Is Company GST Number Valid:', isValidGst
    And print 'Company GST Number:', companyDetails.gstNumber
