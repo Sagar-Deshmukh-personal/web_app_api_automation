@@ -15,7 +15,7 @@ Background:
 @customer
 Scenario: [TC-customer-01] To verify the customer API
 
-    # calling genrate csrf secanrio from registred.feature
+# calling genrate csrf secanrio from registred.feature
 
     * def fetchGenrateCsrfScenario = call read('ExecutionHelper/Loginticket.feature@generateLoginToken')
     * print fetchGenrateCsrfScenario
@@ -25,62 +25,71 @@ Scenario: [TC-customer-01] To verify the customer API
      And headers getHeaders
      And header Authorization = Authorization
 
-    #Send the GET request with form data
+#Send the GET request with form data
      When method GET
  
-    # Verify the response status code
+# Verify the response status code
      Then status 200
  
-    # Print the response for debugging
+# Print the response for debugging
      Then print "Response: ", response
 
-     * def loanDetails = response.loanDetails
+# Check details in the loans array
+     * def loans = response.loans
 
-    # Iterate over each loan detail
-    * eval
-      """
-       loanDetails.forEach(detail => {
-      var accountNumbersType = typeof(detail.accountNumbers[0]);
-      karate.log('AccountNumbers type for applicationId ' + detail.applicationId + ': ' + accountNumbersType);
-      });
-     """
+# Extract and print customer details and its values
+     * def custId = response.custId
+     * print 'Customer Id:', custId
+     * def customerName = response.customerName
+     * print 'Customer Name:' , customerName
+     * def emailId = response.emailId
+     * print 'Customer Email Id:', emailId
+     * def phone = response.phone
+     * print 'Customer Phone No"', phone
+     * def totalAvailableLimit = response.totalAvailableLimit
+     * print 'Total Available Limit: ', totalAvailableLimit
+     * def totalDues = response.totalDues
+     * print 'Total Dues:', totalDues
+     * def totalLimit = response.totalLimit
+     * print 'Total Limit:', totalLimit
 
-     * def loanDetails = response.loanDetails
-
-    # Iterate over each loan detail
-    * eval
-      """
-        loanDetails.forEach(detail => {
-            var customerConsentValue = detail.customerConsent === true || detail.customerConsent === false ? detail.customerConsent : 'Invalid';
-            var bnplLoanValue = detail.bnplLoan === true || detail.bnplLoan === false ? detail.bnplLoan : 'Invalid';
-            var typeValue = detail.type === 'Unsecured' || detail.type === 'Secured' ? detail.type : 'Invalid';
-            karate.log('Customer Consent value for applicationId ' + detail.applicationId + ': ' + customerConsentValue + '\n');
-            karate.log('BNPL Loan value for applicationId ' + detail.applicationId + ': ' + bnplLoanValue + '\n');
-            karate.log('Type value for applicationId ' + detail.applicationId + ': ' + typeValue + '\n');
-        });        
-     """
-
-    * def loanDetails = response.loanDetails
-    # Checking loan account status
-    * eval
+# Function to print loan details
+     * def LoanAndApplicationDetails = 
     """
-        loanDetails.forEach(detail => {
-            var accountStatusValue = detail.accountStatus === 'active' || detail.accountStatus === 'matured' || detail.accountStatus === 'closed' ? detail.accountStatus : 'Invalid';
-            karate.log('Account Status value for applicationId ' + detail.applicationId + ': ' + accountStatusValue + '\n');
-        });       
-   """
-    * def totalAvailableLimit = response.totalAvailableLimit
-    * def totalDues = response.totalDues
-    * def totalLoanAmount = response.totalLoanAmount
-
-    # Check if totalAvailableLimit is greater than zero and then print it
-       * assert totalAvailableLimit > 0
-       * print 'Total Available Limit: ', totalAvailableLimit
-
-    # Check if totalLoanAmount is greater than zero and then print it
-       * assert totalLoanAmount > 0
-       * print 'Total Loan Amount: ', totalLoanAmount
-
-    # Check if totalDues is greater than zero and then print it
-       * assert totalDues > 0
-       * print 'Total Dues: ', totalDues
+    function(loan) {
+      karate.log('Loan Account Number:', loan.loanAccountNumber);
+      karate.log('Loan Application Id:', loan.loanApplicationId);
+      karate.log('Type:', loan.type);
+      karate.log('Status:', loan.status);
+      karate.log('Anchor Name:', loan.anchorName);
+      karate.log('Company Name:', loan.companyName);
+      karate.log('Limit:', loan.limit);
+      karate.log('Available Limit:', loan.availableLimit);
+      karate.log('Total Outstanding:', loan.totalOutstanding);
+      karate.log('Utilized Limit:', loan.utilizedLimit);
+      karate.log('Agreement Type:', loan.agreementType);
+      karate.log('Total Principal Outstanding:', loan.totalPrincipalOutstanding);
+      karate.log('Total Interest Outstanding:', loan.totalInterestOutstanding);
+      karate.log('Total Penal Outstanding:', loan.totalPenalOutstanding);
+      karate.log('Total Principal Overdue:', loan.totalPrincipalOverdue);
+      karate.log('Total Interest Overdue:', loan.totalInterestOverdue);
+      karate.log('Total Overdue:', loan.totalOverdue);
+      karate.log('EMI Amount:', loan.emiAmount);
+      karate.log('Number Of EMIs Paid:', loan.numberOfEmisPaid);
+      karate.log('Tenure:', loan.tenure);
+      karate.log('Lender Id:', loan.lenderId);
+      karate.log('Payment Allowed:', loan.paymentAllowed);
+      karate.log('DPD Interest:', loan.dpdInterest);
+      karate.log('DPD Principal:', loan.dpdPrincipal);
+      karate.log('DPD:', loan.dpd);
+      karate.log('PF Amount:', loan.pfAmount);
+      karate.log('PF Amount Paid:', loan.pfAmountPaid);
+      karate.log('CC Amount:', loan.ccAmount);
+      karate.log('CC Amount Paid:', loan.ccAmountPaid);
+      karate.log('Expiry Date:', loan.expiryDate);
+      karate.log('Applications:', loan.applications);
+    }
+    """
+# Iterate through each loan and print its details using the function
+    * karate.forEach(loans, LoanAndApplicationDetails)
+    * print 'All loans details printed successfully.'
