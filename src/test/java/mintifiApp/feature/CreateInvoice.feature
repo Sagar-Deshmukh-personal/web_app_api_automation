@@ -1,4 +1,4 @@
-@sanity
+@sanity @invoice
 Feature: To demonstarte invoice api testcases 
 
 Background:
@@ -36,8 +36,8 @@ Scenario: [TC-invoice-01] To verify the invoice API
 
 
     # Define the invoice form data
-    And multipart field anchorId = '38'
-    And multipart field loanApplicationId = '66131'
+    And multipart field anchorId = '62'
+    And multipart field loanApplicationId = '66123'
     And multipart field invoiceDate = dynamicInvoiceDate
     And multipart field dueDate = dynamicDueDate
     And multipart field total = '500'
@@ -72,8 +72,8 @@ Scenario: [TC-invoice-02] Verify error message for duplicate GST Invoice ID
     * def dynamicDueDate = LocalDate.now().plusDays(10).toString() // Due date 7 days now 
 
     # Define the invoice form data with the same GST Invoice ID
-    And multipart field anchorId = '38'
-    And multipart field loanApplicationId = '66131'
+    And multipart field anchorId = '62'
+    And multipart field loanApplicationId = '66123'
     And multipart field invoiceDate = dynamicInvoiceDate
     And multipart field dueDate = dynamicDueDate
     And multipart field total = '500'
