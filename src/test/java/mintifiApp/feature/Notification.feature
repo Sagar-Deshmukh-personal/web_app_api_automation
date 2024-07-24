@@ -22,76 +22,76 @@ Background:
 @notification
 Scenario: [TC-NF-01] To verify the Notification API
 
-    # After completion of Auth and login then call the Get API of customer profile.
+# After completion of Auth and login then call the Get API of customer profile.
        Given url getUrl.mintifiBaseUrl + getUrl.typeAuthNofification
        And headers getHeaders
        And header Authorization = Authorization
        When method GET
        Then status 200
 
-    # Capture the initial value of noOfInvoices
+# Capture the initial value of noOfInvoices
        * def initialNoOfNotification = response.totalCount
 
-    # Ensure noOfInvoices remains the same as the initial value
+# Ensure noOfInvoices remains the same as the initial value
        * def newNoOfNotification = response.totalCount
        * assert newNoOfNotification == initialNoOfNotification
        * def notifications = response.notifications
        * print newNoOfNotification
 
-   # Check categories of notifications
+# Check categories of notifications
        * def notifications = response.notifications
        * def categories_to_check = ["INVOICE_UPLOAD_SUCCESS", "DRAWDOWN_SUCCESS", "REPAYMENT_SUCCESS", "COMPANY_PAYMENT_SUCCESS", "COMPANY_PAYMENT_FAILED", "REPAYMENT_FAILED", "MOBILE_UPDATE", "EMAIL_UPDATE"]
        * def categoriesFound = {}
 
-* eval
-  """
-  notifications.forEach(notification => {
-    var category = notification.category;
-    categoriesFound[category] = true;
-  });
-  """
+      * eval
+        """
+        notifications.forEach(notification => {
+          var category = notification.category;
+          categoriesFound[category] = true;
+        });
+        """
 
-* def missingCategories = []
+      * def missingCategories = []
 
-* eval
-  """
-  categories_to_check.forEach(category => {
-    if (!categoriesFound[category]) {
-      missingCategories.push(category);
-    }
-  });
-  """
+      * eval
+        """
+        categories_to_check.forEach(category => {
+          if (!categoriesFound[category]) {
+            missingCategories.push(category);
+          }
+        });
+        """
 
-* eval
-  """
-  missingCategories.forEach(category => {
-    karate.log('Category ' + category + ' not found');
-  });
-  """
+      * eval
+        """
+        missingCategories.forEach(category => {
+          karate.log('Category ' + category + ' not found');
+        });
+        """
 
-* def foundCategories = []
+      * def foundCategories = []
 
-* eval
-  """
-  categories_to_check.forEach(category => {
-    if (categoriesFound[category]) {
-      foundCategories.push(category);
-    }
-  });
-  """
+      * eval
+        """
+        categories_to_check.forEach(category => {
+          if (categoriesFound[category]) {
+            foundCategories.push(category);
+          }
+        });
+        """
 
-* eval
-  """
-  if (foundCategories.length > 0) {
-     karate.log('Categories found successfully: ' + foundCategories.join(', '));
-  }
-  """
+      * eval
+        """
+        if (foundCategories.length > 0) {
+          karate.log('Categories found successfully: ' + foundCategories.join(', '));
+        }
+        """
 
-* eval
-  """
-  if (missingCategories.length === 0) {
-    karate.log('All categories found successfully');
-  } else {
-    karate.log('Not all categories found: ' + missingCategories.join(', '));
-  }
-  """
+      * eval
+        """
+        if (missingCategories.length === 0) {
+          karate.log('All categories found successfully');
+        } else {
+          karate.log('Not all categories found: ' + missingCategories.join(', '));
+        }
+        """
