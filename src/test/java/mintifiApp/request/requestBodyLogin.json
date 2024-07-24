@@ -1,12 +1,12 @@
 {
 
     "validMobileNumber":{
-        "mobileNumber": 8894947572    ,
+        "mobileNumber": 7765202222    ,
         "custId": ""
     },
     
     "verifyMobileNumberUseingMpin": {
-        "mobileNumber": 8894947572,
+        "mobileNumber": 7765202222,
         "mpin": "1111",
         "module": "LOGIN",
         "custId": ""

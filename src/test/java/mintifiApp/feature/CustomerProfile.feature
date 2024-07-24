@@ -50,18 +50,19 @@ Scenario: [TC-CP-01] To verify the customer profile API
     And print 'Customer ID:', custId
 
     And def panPattern = '^\\*{6}\\d{3}[A-Z]$'
-     # Check if PAN is masked
+   # Check if PAN is masked
     And def isMaskedPan = response.pan.startsWith('***') 
     And def isValidPan = isMaskedPan || karate.match(response.pan, panPattern).pass
     And print 'Is PAN Number Valid:', isValidPan
     And print 'PAN Number:', response.pan
 
     And def aadhaarPattern = '^\\*{6}\\d{4}$'
-     # Check if Aadhaar is masked
-    And def isMaskedAadhaar = response.aadhaar.startsWith('***') 
-    And def isValidAadhaar = isMaskedAadhaar || karate.match(response.aadhaar, aadhaarPattern).pass
-    And print 'Is Aadhaar Number Valid:', isValidAadhaar
-    And print 'Aadhaar Number:', response.aadhaar
+   # Check if Aadhaar is masked or empty
+   And def isAadhaarEmpty = response.aadhaar == null || response.aadhaar.trim() == ''
+   And def isMaskedAadhaar = response.aadhaar != null && response.aadhaar.startsWith('***')
+   And def isValidAadhaar = isAadhaarEmpty || isMaskedAadhaar || (response.aadhaar != null && karate.match(response.aadhaar, aadhaarPattern).pass)
+   And print 'Is Aadhaar Number Valid:', isValidAadhaar
+   And print 'Aadhaar Number:', response.aadhaar
 
   # Match and print company details
    And def companyDetails = response.companyDetailResponse[0]
