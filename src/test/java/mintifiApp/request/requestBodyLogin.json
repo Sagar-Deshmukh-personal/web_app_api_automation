@@ -14,14 +14,14 @@
     
     "validCustid":{
         "mobileNumber": "",
-        "custId": "OVP596"
+        "custId": "GPW073"
     },
 
     "verifyCustidUseingMpin": {
         "mobileNumber": "",
         "mpin": 1111,
         "module": "LOGIN",
-        "custId": "OVP596"
+        "custId": "GPW073"
     },
 
     "verifySendOtp":{
@@ -48,9 +48,9 @@
     },
 
     "verifyTCSRequest":{
-        "category": "DDR related",
-        "subCategory": "DDR amount clarification required",
-        "description": "Need to Clarify the DDR Amount"
+        "category": "Refund",
+        "subCategory": "Excess Refund",
+        "description": "Need to Clarify the Refund Amount"
     },
 
     "verifyTCErrorRequest":{

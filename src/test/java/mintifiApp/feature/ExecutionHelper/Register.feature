@@ -11,8 +11,8 @@ Background:
     #Declarations and file read of 'Login.json' request body
     * def getRequestBodyLogin = read('../request/requestBodyLogin.json')
     
-    @generateToken
-    Scenario: To verify 'Login with Cust id" with using Mpin
+@generateToken
+Scenario: To verify 'Login with Cust id" with using Mpin
         Given url getUrl.mintifiBaseUrl + getUrl.typeAuthStatusApi
         * headers getHeaders
         And request getRequestBodyLogin.validCustid
@@ -24,8 +24,8 @@ Background:
     
         And assert responseStatus == 200
     
-    @generateToken
-    Scenario: To verify 'Mpin' for login with cust id
+@generateToken
+Scenario: To verify 'Mpin' for login with cust id
         Given url getUrl.mintifiBaseUrl + getUrl.typeAuthVerifyApi
         * headers getHeaders
         And request getRequestBodyLogin.verifyCustidUseingMpin
