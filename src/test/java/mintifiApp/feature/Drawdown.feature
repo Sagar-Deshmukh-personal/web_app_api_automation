@@ -35,8 +35,8 @@ Scenario: [TC-invoice-01] To verify the invoice and create drawdown API
 
 
     # Define the invoice form data
-    And multipart field anchorId = '38'
-    And multipart field loanApplicationId = '66131'
+    And multipart field anchorId = '62'
+    And multipart field loanApplicationId = '66123'
     And multipart field invoiceDate = dynamicInvoiceDate
     And multipart field dueDate = dynamicDueDate
     And multipart field total = '500'
