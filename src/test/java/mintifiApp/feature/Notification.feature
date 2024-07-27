@@ -15,15 +15,18 @@ Background:
     #Declarations and file read of 'Login.json' response body
         * def getResponseBodyLogin = read('../response/responseBodyLogin.json') 
      # calling genrate csrf scenario from registred.feature
-        * def fetchGenrateCsrfScenario = call read('ExecutionHelper/Loginticket.feature@generateLoginToken')
+        * def fetchGenrateCsrfScenario = call read('ExecutionHelper/Loginothercustid.feature@generatempin')
         * print fetchGenrateCsrfScenario
-        * karate.set('Authorization', 'Bearer ' + fetchGenrateCsrfScenario.storedLoginTokenValues.token)
+        * karate.set('Authorization', 'Bearer ' + fetchGenrateCsrfScenario.storedTokenValues.token)
 
 @notification
 Scenario: [TC-NF-01] To verify the Notification API
 
 # After completion of Auth and login then call the Get API of customer profile.
-       Given url getUrl.mintifiBaseUrl + getUrl.typeAuthNofification
+       * def baseUrl =  getUrl.mintifiBaseUrl + getUrl.typeAuthNofification
+       * def queryString = 'page=0&size=170'
+       * def fullUrl = baseUrl + (baseUrl.includes('?') ? '&' : '?') + queryString
+       Given url fullUrl
        And headers getHeaders
        And header Authorization = Authorization
        When method GET

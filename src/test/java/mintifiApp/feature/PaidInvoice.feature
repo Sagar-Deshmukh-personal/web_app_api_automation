@@ -15,14 +15,14 @@ Background:
 #Declarations and file read of 'Login.json' response body
         * def getResponseBodyLogin = read('../response/responseBodyLogin.json') 
 
-@paidinvoice
+@paidinvoice @text
 Scenario: [TC-CI-01] To verify the closed Invoice API without any query Parameter
 
 
 # calling genrate csrf scenario from registred.feature
-        * def fetchGenrateCsrfScenario = call read('ExecutionHelper/Loginticket.feature@generateLoginToken')
+        * def fetchGenrateCsrfScenario = call read('ExecutionHelper/Loginothercustid.feature@generatempin')
         * print fetchGenrateCsrfScenario
-        * karate.set('Authorization', 'Bearer ' + fetchGenrateCsrfScenario.storedLoginTokenValues.token)
+        * karate.set('Authorization', 'Bearer ' + fetchGenrateCsrfScenario.storedTokenValues.token)
         
 # After completion of Auth and login then call the Get API of  customer profile.
         Given url getUrl.mintifiBaseUrl + getUrl.typeAuthCheckPaidInvoice
@@ -56,9 +56,9 @@ Scenario: [TC-CI-01] To verify the closed Invoice API without any query Paramete
 Scenario: [TC-CI-02] To verify the closed Invoice API with query Parameter
 
 # calling genrate csrf scenario from registred.feature
-         * def fetchGenrateCsrfScenario = call read('ExecutionHelper/Loginticket.feature@generateLoginToken')
+         * def fetchGenrateCsrfScenario = call read('ExecutionHelper/Loginothercustid.feature@generatempin')
          * print fetchGenrateCsrfScenario
-         * karate.set('Authorization', 'Bearer ' + fetchGenrateCsrfScenario.storedLoginTokenValues.token)
+         * karate.set('Authorization', 'Bearer ' + fetchGenrateCsrfScenario.storedTokenValues.token)
                     
 # After completion of Auth and login then call the Get API of  customer profile.
          * def baseUrl = getUrl.mintifiBaseUrl + getUrl.typeAuthCheckPaidInvoice

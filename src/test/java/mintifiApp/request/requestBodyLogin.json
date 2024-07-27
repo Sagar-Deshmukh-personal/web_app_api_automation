@@ -85,6 +85,18 @@
         "requestId": "",
         "otp": "111111",
         "module": "UPDATE_EMAIL"
-      }
+      },
+
+    "verifyLoginAPI":{
+        "mobileNumber": "",
+        "custId": "BEJ012"
+    },
+
+    "verifyLoginApi":{
+        "mobileNumber": "",
+        "mpin": 1111,
+        "module": "LOGIN",
+        "custId": "BEJ012"
+    }
     
 }
