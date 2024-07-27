@@ -15,7 +15,7 @@ Background:
 #Declarations and file read of 'Login.json' response body
         * def getResponseBodyLogin = read('../response/responseBodyLogin.json') 
 
-@paidinvoice @text
+@paidinvoice
 Scenario: [TC-CI-01] To verify the closed Invoice API without any query Parameter
 
 
@@ -52,17 +52,17 @@ Scenario: [TC-CI-01] To verify the closed Invoice API without any query Paramete
         * def responseMatches = true
         * karate.log('Response matches the expected structure.')
 
-@paidinvoice
+@paidinvoice @text
 Scenario: [TC-CI-02] To verify the closed Invoice API with query Parameter
 
 # calling genrate csrf scenario from registred.feature
-         * def fetchGenrateCsrfScenario = call read('ExecutionHelper/Loginothercustid.feature@generatempin')
+         * def fetchGenrateCsrfScenario = call read('ExecutionHelper/Loginticket.feature@generateLoginToken')
          * print fetchGenrateCsrfScenario
-         * karate.set('Authorization', 'Bearer ' + fetchGenrateCsrfScenario.storedTokenValues.token)
+         * karate.set('Authorization', 'Bearer ' + fetchGenrateCsrfScenario.storedLoginTokenValues.token)
                     
 # After completion of Auth and login then call the Get API of  customer profile.
-         * def baseUrl = getUrl.mintifiBaseUrl + getUrl.typeAuthCheckPaidInvoice
-         * def queryString = 'size=10&page=1'
+         * def baseUrl = getUrl.mintifiBaseUrl + getUrl.typeAuthClosedInvoice
+         * def queryString = 'size=10&page=0'
          * def fullUrl = baseUrl + (baseUrl.includes('?') ? '&' : '?') + queryString
            Given url fullUrl
            And headers getHeaders

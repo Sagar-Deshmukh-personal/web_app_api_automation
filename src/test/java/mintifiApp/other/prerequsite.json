@@ -17,6 +17,7 @@
         "typeAuthUserDocumentList":"/documents",
         "typeAuthCustomerProfile": "/customer/profile",
         "typeAuthCheckPaidInvoice": "/invoices/TEST_QA5_OD65965/paid",
+        "typeAuthClosedInvoice":  "/invoices/TEST_QA5_OD66009/paid",
         "typeAuthNofification": "/notifications",
         "typeAuthCustomer": "/customer/"
       },
