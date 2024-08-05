@@ -97,5 +97,18 @@
         "mpin": 1111,
         "module": "LOGIN",
         "custId": "BEJ012"
+    },
+    
+    "verifyotherLoginAutoAPI":{
+        "mobileNumber": "",
+        "custId": "ETT277"
+    },
+
+    "verifyotherMpinAutoApi":{
+        "mobileNumber": "",
+        "mpin": 4444,
+        "module": "LOGIN",
+        "custId": "ETT277"
     }
+
 }

@@ -52,7 +52,7 @@ Scenario: [TC-CI-01] To verify the closed Invoice API without any query Paramete
         * def responseMatches = true
         * karate.log('Response matches the expected structure.')
 
-@paidinvoice @text
+@paidinvoice
 Scenario: [TC-CI-02] To verify the closed Invoice API with query Parameter
 
 # calling genrate csrf scenario from registred.feature
