@@ -1,5 +1,5 @@
 @ddrstatus
-Feature: To demonstarte Auto Drawdown api testcases 
+Feature: To demonstarte DDR Status History API
 
 Background:
 Declarations and file read of headers/ cookies
