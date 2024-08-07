@@ -19,7 +19,9 @@
         "typeAuthCheckPaidInvoice": "/invoices/TEST_QA5_OD65965/paid",
         "typeAuthClosedInvoice":  "/invoices/TEST_QA5_OD66009/paid",
         "typeAuthNofification": "/notifications",
-        "typeAuthCustomer": "/customer/"
+        "typeAuthCustomer": "/customer/",
+        "typeTrackDDrStatus": "/drawdowns/in-progress",
+        "typeDDRStatusHistory": "/drawdowns/55884/status-history"
       },
 
     "actualHeaders": {
