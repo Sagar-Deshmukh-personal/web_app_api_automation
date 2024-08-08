@@ -110,6 +110,11 @@
    "verifyCreditScore":{
     "score": "",
     "type": ""
-  }
+  },
+
+  "verifyEventLogFuzzyMatch":{
+    "statusCode":"#number",
+    "message": "#string"
+}
   
 }

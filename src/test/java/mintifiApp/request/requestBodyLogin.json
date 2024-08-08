@@ -109,6 +109,14 @@
         "mpin": 4444,
         "module": "LOGIN",
         "custId": "ETT277"
+    },
+
+    "verifyEventLog":{
+        "event_type": "LOGIN_SUCCESS_MPIN"
+    },
+
+    "verifyinvalidEventLog":{
+        "event_type": "LOGIN_SUCCESS_MPI"
     }
 
 }
