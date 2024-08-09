@@ -22,7 +22,10 @@
         "typeAuthCustomer": "/customer/",
         "typeTrackDDrStatus": "/drawdowns/in-progress",
         "typeDDRStatusHistory": "/drawdowns/55884/status-history",
-        "typeEventLog": "/event-log"
+        "typeEventLog": "/event-log",
+        "typeAdvancePayment": "/advance-payment",
+        "typeUnfundedInvoice": "/invoices/unfunded",
+        "typetatchPfCc": "/loans/pf-cc"
       },
 
     "actualHeaders": {
