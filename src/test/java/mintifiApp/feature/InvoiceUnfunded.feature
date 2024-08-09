@@ -21,7 +21,7 @@ Scenario: [TC-UNF-01] Verify the unfunded api with success response.
         * print fetchGenrateCsrfScenario
         * karate.set('Authorization', 'Bearer ' + fetchGenrateCsrfScenario.storedTokenValues.token)
 
-# After completion of Auth and login then call the Get API of track ddr.
+# After completion of Auth and login then call the Get API of Unfunded Invoices Detail.
         Given url getUrl.mintifiBaseUrl + getUrl.typeUnfundedInvoice
         And headers getHeaders
         And header Authorization = Authorization
