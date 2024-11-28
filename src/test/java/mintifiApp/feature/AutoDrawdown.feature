@@ -34,8 +34,8 @@ Scenario: [TC-AutoDDR-01] To verify, all users of this anchor will be eligible f
     * def StoreInvoiceValue = dynamicGstInvoiceId
 
 # Define the invoice form data
-    And multipart field anchorId = '38'
-    And multipart field loanApplicationId = '55171'
+    And multipart field anchorId = '40'
+    And multipart field loanApplicationId = '66897'
     And multipart field invoiceDate = dynamicInvoiceDate
     And multipart field dueDate = dynamicDueDate
     And multipart field total = '500'
@@ -74,7 +74,7 @@ Scenario: [TC-AutoDDR-01] To verify, all users of this anchor will be eligible f
                         "user_requested_amount": "500"  
                     }
                 ],
-                "bank_account_id": "28653"   
+                "bank_account_id": "33823"   
             }
         ],
         "distributor_company_id":  "#(distributorCompanyId)", 
@@ -108,8 +108,8 @@ Scenario: [TC-AutoDDR-02] To verify the auto disbursement for this customer, che
         * def StoreInvoiceValue = dynamicGstInvoiceId
     
 # Define the invoice form data
-        And multipart field anchorId = '38'
-        And multipart field loanApplicationId = '55171'
+        And multipart field anchorId = '40'
+        And multipart field loanApplicationId = '66897'
         And multipart field invoiceDate = dynamicInvoiceDate
         And multipart field dueDate = dynamicDueDate
         And multipart field total = '499999'
@@ -148,7 +148,7 @@ Scenario: [TC-AutoDDR-02] To verify the auto disbursement for this customer, che
                             "user_requested_amount": "499999"  
                         }
                     ],
-                    "bank_account_id": "28653"   
+                    "bank_account_id": "33823"   
                 }
             ],
             "distributor_company_id":  "#(distributorCompanyId)", 
@@ -182,8 +182,8 @@ Scenario: [TC-AutoDDR-03] To verify the auto disbursement for this customer, che
         * def StoreInvoiceValue = dynamicGstInvoiceId
 
 # Define the invoice form data
-        And multipart field anchorId = '38'
-        And multipart field loanApplicationId = '55171'
+        And multipart field anchorId = '40'
+        And multipart field loanApplicationId = '66897'
         And multipart field invoiceDate = dynamicInvoiceDate
         And multipart field dueDate = dynamicDueDate
         And multipart field total = '500001'
@@ -222,7 +222,7 @@ Scenario: [TC-AutoDDR-03] To verify the auto disbursement for this customer, che
                             "user_requested_amount": "500001"  
                         }
                     ],
-                    "bank_account_id": "28653"   
+                    "bank_account_id": "33823"   
                 }
             ],
             "distributor_company_id":  "#(distributorCompanyId)", 

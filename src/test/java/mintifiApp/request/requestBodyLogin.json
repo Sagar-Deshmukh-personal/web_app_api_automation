@@ -117,6 +117,16 @@
 
     "verifyinvalidEventLog":{
         "event_type": "LOGIN_SUCCESS_MPI"
+    },
+    "verifyloginother":{
+        "mobileNumber": "",
+        "module": "LOGIN",
+        "custId": "OTE681"
+    },
+
+    "verifyOtpother":{
+        "requestId": "",
+        "otp": "111111"
     }
 
 }
