@@ -30,8 +30,10 @@
         "typeTlSchedule": "/loans/term-loan/schedule/VT0001122?page=1&per=12",
         "typeRepaymentsHistory" : "/payments/repayments/QA5OD66892?page=0&size=10",
         "typeRepayDues": "/payments/loan/repayment/dues",
-        "typeInitiatOrder": "/payments/initiate-order"
-
+        "typeInitiatOrder": "/payments/initiate-order",
+        "typeCustomerConfig" : "/customer/config",
+        "typeCustomerInsurance" : "/insurance",
+        "typerenewal": "/renewals"
       },
 
     "actualHeaders": {
