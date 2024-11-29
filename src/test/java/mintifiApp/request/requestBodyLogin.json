@@ -127,6 +127,11 @@
     "verifyOtpother":{
         "requestId": "",
         "otp": "111111"
-    }
+    },
+    "verifyIntiateOrder": {
+        "loanApplicationId": "66893",
+        "amount": "5000",
+        "externalLinkRepayment": false
+      }
 
 }

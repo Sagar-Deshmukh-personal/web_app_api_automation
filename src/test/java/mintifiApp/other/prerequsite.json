@@ -29,7 +29,8 @@
         "typeViewdrawdown": "/drawdowns/QA5OD66892?size=10&page=0",
         "typeTlSchedule": "/loans/term-loan/schedule/VT0001122?page=1&per=12",
         "typeRepaymentsHistory" : "/payments/repayments/QA5OD66892?page=0&size=10",
-        "typeRepayDues": "/payments/loan/repayment/dues"
+        "typeRepayDues": "/payments/loan/repayment/dues",
+        "typeInitiatOrder": "/payments/initiate-order"
 
       },
 
