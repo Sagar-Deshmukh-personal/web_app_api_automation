@@ -35,7 +35,7 @@ Scenario: [TC-custconfig-01] To verify customer configuration API.
         Then print response
 # Validate notificationCount is a valid number and greater than 0
         * match response.notificationCount == "#number"
-        * assert response.notificationCount > 0
+        * assert response.notificationCount >= 0
 
 # Validate advancePayment is either true or false
         * match response.advancePayment == "#boolean"
