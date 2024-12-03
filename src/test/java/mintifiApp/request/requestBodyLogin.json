@@ -132,6 +132,15 @@
         "loanApplicationId": "66893",
         "amount": "5000",
         "externalLinkRepayment": false
-      }
+      },
+      "verifyDrawdownLogin":{
+        "mobileNumber": "",
+        "module": "LOGIN",
+        "custId": "CZH116"
+    },
+    "verifyDDROtp":{
+        "requestId": "",
+        "otp": "111111"
+    }
 
 }
