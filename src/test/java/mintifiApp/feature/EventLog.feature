@@ -56,7 +56,7 @@ Scenario: [TC-EL-02] Verify that sending a in-valid event log request to the Eve
 # Print the response for debugging
         Then print "Response: ", response
 
-@event @temp
+@event
 Scenario: [TC-EL-03] To verify 'Fuzzy Match' for evenlt log verification for valid data
 # calling genrate csrf secanrio from registred.feature
         * def fetchGenrateCsrfScenario = call read('ExecutionHelper/LoginAutoDDR.feature@generateautoother')
