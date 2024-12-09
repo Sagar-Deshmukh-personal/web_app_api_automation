@@ -101,14 +101,14 @@
     
     "verifyotherLoginAutoAPI":{
         "mobileNumber": "",
-        "custId": "ETT277"
+        "custId": "ZHZ483"
     },
 
     "verifyotherMpinAutoApi":{
         "mobileNumber": "",
-        "mpin": 4444,
+        "mpin": 1111,
         "module": "LOGIN",
-        "custId": "ETT277"
+        "custId": "ZHZ483"
     },
 
     "verifyEventLog":{
