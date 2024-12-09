@@ -18,7 +18,7 @@ Scenario: [TC-repayhistory-01] To verify repay-history
 
 # calling genrate csrf secanrio from registred.feature
 
-    * def fetchGenrateCsrfScenario = call read('ExecutionHelper/LoginApiother.feature@generateother')
+    * def fetchGenrateCsrfScenario = call read('ExecutionHelper/LoginAutoDDR.feature@generateautoother')
     * print fetchGenrateCsrfScenario
     * karate.set('Authorization', 'Bearer ' + fetchGenrateCsrfScenario.storedTokenValues.token)
 
@@ -32,3 +32,4 @@ Scenario: [TC-repayhistory-01] To verify repay-history
     When method GET
 # Validating that the response status is 200
     Then status 200
+    Then print response
